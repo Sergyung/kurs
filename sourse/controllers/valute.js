@@ -17,7 +17,8 @@ export function mainPage(req, res) {
   }
 
   res.render('main', {
-    valute: getList(),
+    req: req,
+    valute: list,
     title: 'Главная'
   });
 }
