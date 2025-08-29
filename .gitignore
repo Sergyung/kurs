@@ -1,0 +1,5 @@
+node_modules/
+data/
+*.xml
+package-lock.json
+app.js
