@@ -1,6 +1,21 @@
 import { getList, getItem } from "../models/valute.js";
 
 export function mainPage(req, res) {
+  let list = getList();
+
+  if(req.query.search) {
+    const q = req.query.search.toLowerCase();
+    list = list.filter((el) => {
+      if (el.name.toLowerCase().includes(q))
+        return true;
+      else
+        if (el.charCode)
+          return el.charCode.toLowerCase().includes(q);
+        else
+          return false;
+    })
+  }
+
   res.render('main', {
     valute: getList(),
     title: 'Главная'
