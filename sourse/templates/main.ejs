@@ -1,0 +1,15 @@
+<%- include('includes/header.ejs') %>
+
+  <h1>Курсы основных валют</h1>
+  <% for (let t of valute) { %>
+  <article class="card">
+    <header>  
+      <h2><i><a href=<%= t.numCode %>> <%= t.name %> (<%= t.charCode %>)</i></h2>
+    </header>
+    <footer>
+      <p>Цена за 1: <%= t.vunitRate %></p>
+    </footer>
+  </article>  
+  <% } %>
+
+<%- include('includes/footer.ejs') %>
