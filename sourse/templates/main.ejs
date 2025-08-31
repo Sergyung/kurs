@@ -14,6 +14,17 @@
     </header>
     <footer>
       <p>Цена за 1: <%= t.vunitRate %></p>
+      <div style="text-align: right;">
+        <% if(!t.done) { %>
+          <form action="/<%= t.numCode %>?_method=PUT" method="post" style="display: inline;">
+            <input type="submit" class="success" value="В избранное">
+          </form> 
+        <% } else { %>
+          <form action="/<%= t.numCode %>?_method=PUT" method="post" style="display: inline;">
+            <input type="submit" class="warning" value="Из избранного">
+          </form> 
+        <% } %>
+      </div>
     </footer>
   </article>  
   <% } %>

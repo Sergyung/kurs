@@ -1,6 +1,17 @@
 <%- include('includes/header.ejs') %>
 
   <h1><%= todo.name %></h1>
+  <div>
+        <% if(!todo.done) { %>
+          <form action="/<%= todo.numCode %>?_method=PUT" method="post" style="display: inline;">
+            <input type="submit" class="success" value="В избранное">
+          </form> 
+        <% } else { %>
+          <form action="/<%= todo.numCode %>?_method=PUT" method="post" style="display: inline;">
+            <input type="submit" class="warning" value="Из избранного">
+          </form> 
+        <% } %>
+      </div>
   <p><b><%= todo.charCode %></b></p>
   <p>Цена за 1: <%= todo.vunitRate %></p>
   

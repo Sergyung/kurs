@@ -1,4 +1,4 @@
-import { getList, getItem } from "../models/valute.js";
+import { getList, getItem, setDoneItem } from "../models/valute.js";
 
 export function mainPage(req, res) {
   let list = getList();
@@ -42,4 +42,11 @@ function errorPage(req, res) {
   res.render('404', {
     title: 'Ошибка'
   });
+}
+
+export function setDone(req, res) {
+  if (setDoneItem(req.params.id))
+    res.redirect('/');
+  else
+    errorPage(req, res);
 }
