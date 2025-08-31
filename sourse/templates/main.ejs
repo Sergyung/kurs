@@ -1,12 +1,11 @@
 <%- include('includes/header.ejs') %>
 
-  <form method="get" style="text-align: right;">
-    <input name="search" value="<%= req.query.search %>" style="display: inline; width: 200px;"> 
-    
-    <input type="submit" value="Найти" style="display: inline;">
+  <form method="get" class="horizontal">
+    <input name="search" value="<%= req.query.search %>"> 
+    <input type="submit" value="Найти">
   </form>
 
-  <h1>Курсы основных валют</h1>
+  <h1 class="heading">Курсы основных валют</h1>
   <% for (let t of valute) { %>
   <article class="card">
     <header>  
@@ -14,13 +13,13 @@
     </header>
     <footer>
       <p>Цена за 1: <%= t.vunitRate %></p>
-      <div style="text-align: right;">
+      <div class="horizontal">
         <% if(!t.done) { %>
-          <form action="/<%= t.numCode %>?_method=PUT" method="post" style="display: inline;">
+          <form action="/<%= t.numCode %>?_method=PUT" method="post">
             <input type="submit" class="success" value="В избранное">
           </form> 
         <% } else { %>
-          <form action="/<%= t.numCode %>?_method=PUT" method="post" style="display: inline;">
+          <form action="/<%= t.numCode %>?_method=PUT" method="post">
             <input type="submit" class="warning" value="Из избранного">
           </form> 
         <% } %>
